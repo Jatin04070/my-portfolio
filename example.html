@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jatin Gupta - Data Scientist & AI Generalist</title>
+    <meta name="description" content="Data Scientist and AI Generalist specializing in machine learning, deep learning, MLOps, and building data-driven solutions to solve complex business problems.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #007bff; /* Bright, professional blue */
+            --primary-dark: #0056b3;
+            --secondary: #6c757d; /* Muted gray for secondary text */
+            --bg-color: #f8f9fa; /* Light, clean background */
+            --card-bg: #ffffff; /* White cards to pop off the background */
+            --text-color: #212529; /* Dark text for high contrast */
+            --border-color: #dee2e6;
+            --shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            font-family: 'Inter', sans-serif; 
+            line-height: 1.6; 
+            color: var(--text-color); 
+            background-color: var(--bg-color); 
+            overflow-x: hidden; 
+            scroll-behavior: smooth; 
+        }
+
+        nav { 
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            padding: 1rem 0; 
+            background: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+            backdrop-filter: blur(10px); 
+            border-bottom: 1px solid var(--border-color); 
+            z-index: 1000; 
+            transition: all 0.3s ease; 
+        }
+
+        .nav-container { 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 0 2rem; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+        }
+
+        .logo { 
+            font-size: 1.5rem; 
+            font-weight: 700; 
+            color: var(--primary);
+        }
+
+        .nav-links { display: flex; gap: 2rem; list-style: none; }
+        .nav-links a { color: var(--text-color); text-decoration: none; font-weight: 500; transition: color 0.3s ease; }
+        .nav-links a:hover { color: var(--primary); }
+
+        .hero { 
+            min-height: 100vh; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            text-align: center; 
+            padding: 0 2rem; 
+            position: relative; 
+            background: linear-gradient(135deg, var(--bg-color) 0%, #e9ecef 100%);
+        }
+
+        .hero-content { max-width: 800px; z-index: 2; }
+        
+        .hero-badge { 
+            display: inline-flex; 
+            align-items: center; 
+            gap: 0.5rem; 
+            background-color: rgba(0, 123, 255, 0.1); 
+            border: 1px solid rgba(0, 123, 255, 0.2); 
+            padding: 0.5rem 1rem; 
+            border-radius: 50px; 
+            font-size: 0.9rem; 
+            font-weight: 500; 
+            color: var(--primary); 
+            margin-bottom: 2rem; 
+        }
+
+        .hero h1 { 
+            font-size: clamp(2.5rem, 5vw, 4rem); 
+            font-weight: 800; 
+            line-height: 1.1; 
+            margin-bottom: 1.5rem; 
+            color: var(--text-color);
+        }
+
+        .hero-subtitle { 
+            font-size: 1.25rem; 
+            color: var(--secondary); 
+            margin-bottom: 2rem; 
+        }
+        
+        .hero-cta { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+        
+        .btn { 
+            display: inline-flex; 
+            align-items: center; 
+            gap: 0.5rem; 
+            padding: 0.875rem 2rem; 
+            border-radius: 50px; 
+            font-weight: 600; 
+            text-decoration: none; 
+            transition: all 0.3s ease; 
+            cursor: pointer; 
+            border: 1px solid transparent; 
+            font-size: 1rem; 
+        }
+
+        .btn-primary { 
+            background-color: var(--primary); 
+            color: white; 
+            border-color: var(--primary);
+        }
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            border-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary { 
+            background-color: transparent; 
+            color: var(--primary); 
+            border: 1px solid var(--primary); 
+        }
+        .btn-secondary:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .about-section { padding: 6rem 2rem; }
+        
+        .about-container { 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            display: grid; 
+            grid-template-columns: 1fr 2fr; 
+            gap: 4rem; 
+            align-items: center; 
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: 450px;
+            object-fit: cover; /* Ensures the image covers the area without distortion */
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+        }
+        
+        .about-content h2 { font-size: 2.5rem; font-weight: 700; margin-bottom: 1.5rem; }
+        .about-content p { font-size: 1.1rem; color: var(--secondary); margin-bottom: 1.5rem; line-height: 1.7; }
+        
+        .skills-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin-top: 2rem; }
+        .skill-item { 
+            display: flex; 
+            align-items: center; 
+            gap: 0.75rem; 
+            padding: 1.25rem; 
+            background: var(--card-bg); 
+            border-radius: 10px; 
+            border: 1px solid var(--border-color); 
+            transition: all 0.3s ease;
+        }
+        .skill-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+        .skill-icon { font-size: 1.5rem; color: var(--primary); }
+
+        .projects-section, .contact-section, .ai-demo-section { 
+            padding: 6rem 2rem; 
+            background-color: #e9ecef; /* Slightly different background for section separation */
+        }
+        
+        .section-header { text-align: center; margin-bottom: 4rem; }
+        .section-header h2 { font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem; }
+        .section-header p { font-size: 1.1rem; color: var(--secondary); max-width: 600px; margin: 0 auto; }
+        
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto; }
+        .project-card { 
+            background: var(--card-bg); 
+            border: 1px solid var(--border-color); 
+            border-radius: 15px; 
+            padding: 2rem; 
+            transition: all 0.3s ease; 
+            box-shadow: var(--shadow);
+        }
+        .project-card:hover { transform: translateY(-10px); box-shadow: 0 8px 20px rgba(0,0,0,0.12); }
+        
+        .project-icon { font-size: 3rem; color: var(--primary); margin-bottom: 1.5rem; }
+        .project-card h3 { font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; }
+        .project-card p { color: var(--secondary); margin-bottom: 1.5rem; line-height: 1.6; }
+        
+        .project-tech { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; }
+        .tech-tag { 
+            background-color: rgba(0, 123, 255, 0.1); 
+            border: 1px solid rgba(0, 123, 255, 0.2); 
+            color: var(--primary); 
+            padding: 0.25rem 0.75rem; 
+            border-radius: 50px; 
+            font-size: 0.85rem; 
+            font-weight: 500; 
+        }
+        
+        .project-links { display: flex; gap: 1rem; }
+        .project-link { color: var(--primary); text-decoration: none; font-weight: 600; }
+        .project-link:hover { text-decoration: underline; }
+        
+        .contact-container { max-width: 800px; margin: 0 auto; text-align: center; }
+        .contact-links { display: flex; justify-content: center; gap: 2rem; margin-top: 2rem; flex-wrap: wrap; }
+        .contact-item { 
+            display: flex; 
+            align-items: center; 
+            gap: 0.75rem; 
+            padding: 1rem 1.5rem; 
+            background: var(--card-bg); 
+            border: 1px solid var(--border-color); 
+            border-radius: 15px; 
+            text-decoration: none; 
+            color: var(--text-color); 
+            transition: all 0.3s ease;
+        }
+        .contact-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+            color: var(--primary);
+        }
+        .contact-icon { font-size: 1.5rem; color: var(--primary); }
+        
+        footer { 
+            padding: 2rem; 
+            text-align: center; 
+            border-top: 1px solid var(--border-color); 
+            background-color: #e9ecef; 
+            color: var(--secondary); 
+        }
+        
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .mobile-menu { display: flex; }
+            .about-container { grid-template-columns: 1fr; gap: 2rem; }
+            .projects-grid { grid-template-columns: 1fr; }
+            .about-image img { height: 400px; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="logo">Jatin Gupta</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content" style="animation: fadeInUp 1s ease;">
+            <div class="hero-badge">
+                <i class="fas fa-brain"></i>
+                <span>Data Scientist & AI Generalist</span>
+            </div>
+            <h1>Solving Complex Problems with Data and Machine Learning</h1>
+            <p class="hero-subtitle">
+                I build and deploy end-to-end AI and machine learning solutions that drive business value, from data ingestion and modeling to MLOps and final deployment.
+            </p>
+            <div class="hero-cta">
+                <a href="#projects" class="btn btn-primary">
+                    <i class="fas fa-cogs"></i> View My Projects
+                </a>
+                <a href="#contact" class="btn btn-secondary">
+                    <i class="fas fa-envelope"></i> Contact Me
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about-section">
+        <div class="about-container">
+            <div class="about-image">
+                <img src="IMG_1861.jpeg" alt="Jatin Gupta">
+            </div>
+            <div class="about-content">
+                <h2>Architecting Intelligence from Data</h2>
+                <p>
+                    As a Data Scientist and AI Generalist, I thrive at the intersection of machine learning, software engineering, and business strategy. I don't just build models; I build robust, scalable, and maintainable data solutions. My passion lies in transforming raw data into actionable insights and intelligent products that solve real-world problems.
+                </p>
+                <p>
+                    My experience spans the full data science lifecycle: from exploratory data analysis and feature engineering to building deep learning models and deploying them in production environments using modern MLOps practices. I am committed to responsible AI development, focusing on model explainability, bias detection, and ethical considerations.
+                </p>
+                <div class="skills-list">
+                    <div class="skill-item"><i class="fab fa-python skill-icon"></i><div><strong>Core Data Science</strong><br><small>Python, Pandas, Scikit-learn, SQL</small></div></div>
+                    <div class="skill-item"><i class="fas fa-robot skill-icon"></i><div><strong>Machine & Deep Learning</strong><br><small>TensorFlow, PyTorch, Keras, NLP</small></div></div>
+                    <div class="skill-item"><i class="fas fa-cogs skill-icon"></i><div><strong>MLOps & Deployment</strong><br><small>Docker, Kubernetes, MLflow, CI/CD</small></div></div>
+                    <div class="skill-item"><i class="fas fa-cloud skill-icon"></i><div><strong>Cloud Platforms</strong><br><small>AWS (SageMaker, S3), GCP (AI Platform)</small></div></div>
+                    <div class="skill-item"><i class="fas fa-database skill-icon"></i><div><strong>Data Engineering</strong><br><small>Apache Spark, Kafka, Airflow, SQL/NoSQL</small></div></div>
+                    <div class="skill-item"><i class="fas fa-balance-scale skill-icon"></i><div><strong>Ethical & Responsible AI</strong><br><small>Explainability (SHAP, LIME), Bias Detection</small></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="projects-section">
+        <div class="section-header">
+            <h2>Featured Data Science Projects</h2>
+            <p>End-to-end solutions that demonstrate technical depth and business impact.</p>
+        </div>
+        <div class="projects-grid">
+            
+            <div class="project-card">
+                <i class="fas fa-broadcast-tower project-icon"></i>
+                <h3>Project Cyclops: Real-Time Anomaly Detection</h3>
+                <p>Developed a scalable, real-time anomaly detection system for streaming IoT sensor data. The system identifies faulty equipment predictively, reducing maintenance costs by 30%.</p>
+                <div class="project-tech">
+                    <span class="tech-tag">Kafka</span><span class="tech-tag">TensorFlow</span><span class="tech-tag">AWS Kinesis</span><span class="tech-tag">Docker</span><span class="tech-tag">LSTM Autoencoder</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/Jatin04070/cyclops-anomaly-detection" target="_blank" class="project-link"><i class="fab fa-github"></i> View on GitHub</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <i class="fas fa-comments project-icon"></i>
+                <h3>Aura NLP: Customer Sentiment Analysis Engine</h3>
+                <p>Built and deployed a sentiment analysis microservice using a fine-tuned BERT model to analyze customer reviews. The engine achieves 94% accuracy and serves real-time requests via a REST API.</p>
+                <div class="project-tech">
+                    <span class="tech-tag">PyTorch</span><span class="tech-tag">Hugging Face</span><span class="tech-tag">NLP</span><span class="tech-tag">FastAPI</span><span class="tech-tag">Docker</span><span class="tech-tag">CI/CD</span>
+                </div>
+                <div class="project-links">
+                     <a href="https://github.com/Jatin04070/aura-nlp-engine" target="_blank" class="project-link"><i class="fab fa-github"></i> View on GitHub</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <i class="fas fa-chart-area project-icon"></i>
+                <h3>Helios: Predictive Sales Forecasting Model</h3>
+                <p>Created a time-series forecasting model to predict quarterly sales with 92% accuracy. Integrated model explainability using SHAP to provide actionable insights to the sales team.</p>
+                <div class="project-tech">
+                    <span class="tech-tag">Scikit-learn</span><span class="tech-tag">XGBoost</span><span class="tech-tag">MLflow</span><span class="tech-tag">SHAP</span><span class="tech-tag">Streamlit</span>
+                </div>
+                <div class="project-links">
+                     <a href="https://github.com/Jatin04070/helios-sales-forecasting" target="_blank" class="project-link"><i class="fab fa-github"></i> View on GitHub</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <i class="fas fa-shield-alt project-icon"></i>
+                <h3>GAIA: Ethical AI Auditing Framework</h3>
+                <p>Designed a novel framework and Python library to audit machine learning models for bias and fairness. The tool generates comprehensive reports on model behavior, helping ensure regulatory compliance.</p>
+                <div class="project-tech">
+                    <span class="tech-tag">Responsible AI</span><span class="tech-tag">Fairlearn</span><span class="tech-tag">Pandas</span><span class="tech-tag">Python Library</span><span class="tech-tag">Bias Detection</span>
+                </div>
+                <div class="project-links">
+                     <a href="https://github.com/Jatin04070/gaia-ethical-ai-framework" target="_blank" class="project-link"><i class="fab fa-github"></i> View on GitHub</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <div class="contact-container">
+            <div class="section-header">
+                <h2>Let's Connect</h2>
+                <p>I'm always open to discussing new projects, creative ideas, or opportunities to be part of an ambitious team. Feel free to reach out.</p>
+            </div>
+            <div class="contact-links">
+                <a href="mailto:jatinengineer4@gmail.com" class="contact-item">
+                    <i class="fas fa-envelope contact-icon"></i><div><strong>Email</strong><br><small>jatinengineer4@gmail.com</small></div>
+                </a>
+                <a href="https://www.linkedin.com/in/jatingupta4/" target="_blank" class="contact-item">
+                    <i class="fab fa-linkedin contact-icon"></i><div><strong>LinkedIn</strong><br><small>Connect with Me</small></div>
+                </a>
+                <a href="https://github.com/Jatin04070" target="_blank" class="contact-item">
+                    <i class="fab fa-github contact-icon"></i><div><strong>GitHub</strong><br><small>Follow my work</small></div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Jatin Gupta - Data Scientist & AI Generalist.</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>
