@@ -1,0 +1,11 @@
+/* Add this with your other styles */
+        .resume-btn {
+            padding: 0.5rem 1.5rem; /* Makes the nav button slightly smaller */
+        }
+
+        /* Hides the resume button when the mobile menu is used */
+        @media (max-width: 768px) {
+            .resume-btn {
+                display: none;
+            }
+        }
